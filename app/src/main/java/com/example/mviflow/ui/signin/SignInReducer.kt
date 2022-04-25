@@ -1,30 +1,33 @@
 package com.example.mviflow.ui.signin
 
+import android.util.Log
 import com.example.mviflow.redux.Reducer
 
-class SignInReducer:  Reducer<SignInViewState, SignInAction> {
+class SignInReducer : Reducer<SignInViewState, SignInAction> {
 
     override fun reduce(currentState: SignInViewState, action: SignInAction): SignInViewState {
-      return when(action) {
+        Log.d("Reducing.... ", action.toString())
 
-             is SignInAction.EmailChanged -> {
-                 currentState.copy(email = action.newEmail)
-             }
+        return when (action) {
 
-             is SignInAction.PasswordChanged -> {
-                 currentState.copy(password = action.newPassword)
-             }
+            is SignInAction.EmailChanged -> {
+                currentState.copy(email = action.newEmail)
+            }
 
-             is SignInAction.SignInFailed -> {
-                 currentState.copy(showProgressBar = false)
-             }
+            is SignInAction.PasswordChanged -> {
+                currentState.copy(password = action.newPassword)
+            }
 
-             is SignInAction.SignInStarted -> {
-                 currentState.copy(showProgressBar = true)
-             }
+            is SignInAction.SignInFailed -> {
+                currentState.copy(showProgressBar = false)
+            }
 
-             else -> currentState
-         }
+            is SignInAction.SignInStarted -> {
+                currentState.copy(showProgressBar = true)
+            }
+
+            else -> currentState
+        }
     }
 
 }
