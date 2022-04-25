@@ -1,7 +1,8 @@
-package com.example.mviflow
+package com.example.mviflow.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.mviflow.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
